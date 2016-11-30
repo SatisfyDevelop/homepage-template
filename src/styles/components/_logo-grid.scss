@@ -1,0 +1,69 @@
+.logo-grid {
+  margin: 0;
+  text-align: center;
+  font-size: 0;
+
+  .logo {
+    display: inline-block;
+    width: 48.5%;
+    height: 0;
+    padding-bottom: 30%;
+    margin: 0 3% 3% 0;
+    text-indent: -9999px;
+    overflow: hidden;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    &:nth-of-type(even) {
+      margin-right: 0;
+    }
+  }
+}
+
+#innovationWomen {
+  background-image: url("../../images/client-logos/innovation-women-logo.png");
+  background-size: auto 60%;
+}
+
+#velir {
+  background-image: url("../../images/client-logos/velir-logo.png");
+  background-size: 80% auto;
+}
+
+#resilientCoders {
+  background-image: url("../../images/client-logos/resilient-coders-logo.png");
+  background-size: auto 50%;
+}
+
+#snapx {
+  background-image: url("../../images/client-logos/safety-net-access-logo.png");
+  background-size: 70% auto;
+}
+
+#cityAwake {
+  background-image: url("../../images/client-logos/city-awake-logo.png");
+  background-size: 70% auto;
+}
+
+#vsnap {
+  background-image: url("../../images/client-logos/vsnap-logo.png");
+  background-size: 70% auto;
+}
+
+@media (min-width: 600px) {
+  .logo-grid {
+
+    .logo {
+      width: 31.333%;
+      padding-bottom: 20%;
+
+      &:nth-of-type(even) {
+        margin-right: 3%;
+      }
+
+      &:nth-of-type(3n+3) {
+        margin-right: 0;
+      }
+    }
+  }
+}
