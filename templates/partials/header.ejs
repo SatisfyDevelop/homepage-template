@@ -1,0 +1,38 @@
+<header class="header--global">
+  <div class="container ">
+    <a href="<%- level %>" class="main--navigation-logo">
+      <img src="<%- level %>images/logos/logo.svg" />
+      <span class="visually-hidden">East Coast Product</span>
+    </a>
+    <nav class="navigation navigation--global">
+      <a href="<%- level %>services" class="link link-services">Services</a>
+      <a href="<%- level %>work" class="link link-work">Work</a>
+      <a href="<%- level %>about" class="link link-about">About</a>
+      <a href="<%- level %>jobs" class="link link-jobs">Jobs</a>
+      <a href="https://blog.eastcoastproduct.com" target="_blank" class="link">Blog</a>
+      <a href="<%- level %>contact" class="button--major">Hire Us</a>
+    </nav>
+    <div class="page-heading">
+      <% if(layout == "home.ejs") { %>
+        <h1 class="page-heading--solo-paragraph"><%- pageDescription %></h1>
+        <div class="header--image">
+          <img src="<%- pageHeadingImage %>" alt="<%- pageHeadingImageAlt %>"/>
+        </div>
+      <% } else { %>
+        <h1 class="page-heading--title"><%- pageHeading %></h1>
+        <% if(pageDescription) { %>
+          <p class="page-heading--subtitle"><%- pageDescription %></p>
+        <% } %>
+        <% if(pageHeadingImage) { %>
+          <div class="header--image" id="to-be-removed">
+            <picture class="browser-chrome">
+              <span class="browser-buttons" id="close-browser-button"></span>
+              <span class="browser-url-bar" contenteditable="true"></span>
+              <img src="<%- level %>/<%- pageHeadingImage %>" alt="<%- pageHeadingImageAlt %>"/>
+            </picture>
+          </div>
+        <% } %>
+      <% } %>
+    </div>
+  </div>
+</header>
