@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <% include partials/head %>
+  <body class="area-contact">
+    <% include partials/header %>
+    <main>
+      <section id="general">
+        <div class="container">
+          <header class="section--header">
+            <h1 class="text-heading-one">I have a question</h1>
+          </header>
+          <div class="card targetable">
+            <p class="paragraph--major">Email: <a href="mailto:hello@eastcoastproduct.com">hello@eastcoastproduct.com</a><br>
+            Call: <a href="tel:+18667777459">(866) 777-7459</a></p>
+          </div>
+        </div><!-- end of .container -->
+      </section>
+      <section id="form">
+        <div class="container">
+          <header class="section--header">
+            <h1 class="text-heading-one">I'd like to talk about a project</h1>
+          </header>
+          <div class="card targetable">
+            <!--[if lte IE 8]>
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+            <![endif]-->
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+            <script>
+              hbspt.forms.create({
+                css: '',
+                portalId: '502785',
+                formId: 'f3356206-08e0-4e99-b0b3-2f24f7e319d3'
+              });
+            </script>
+          </div>
+        </div>
+      </section>
+      <section id="experts">
+        <div class="container">
+          <header class="section--header">
+            <h1 class="text-heading-one">I'd like some advice from an expert</h1>
+          </header>
+          <ul class="employee-list">
+            <% collections.person.forEach(function(person){ %>
+            <% if(person.id == "chris-swenor" || person.id == "ivan-blazevic" || person.id == "steve-hickey") { %>
+            <li class="employee card targetable">
+              <div class="employee-photo-wrap">
+                <img src="../images/photos/team/<%= person.id%>.jpg" alt="Potrait of <%= person.name %>" class="employee-photo" />
+              </div>
+              <h2 class="text-heading-two employee-name"><%= person.name %></h2>
+              <h3 class="paragraph--minor employee-title"><%= person.title %></h3>
+              <p class="paragraph--minor employee-bio"><%= person.bio %></p>
+              <p class="paragraph--minor"><strong><%= person.name.split(" ")[0] %> is an expert in:</strong> <br><%= person.areas %>.</p>
+              <ul class="list--minor employee-contact">
+                <% if(person.contact.email) { %>      <li><span class="icon icon--email-darkest"></span><a href="mailto:<%= person.contact.email %>@eastcoastproduct.com" target="_blank">Email me</a></li><% } %>
+                <% if(person.contact.schedule) { %>   <li><span class="icon icon--calendar-darkest"></span><a href="<%= person.contact.schedule %>" target="_blank">Schedule time with me</a></li><% } %>
+                <% if(person.contact.tel) { %>        <li><span class="icon icon--phone-darkest"></span><a href="tel:<%= person.contact.tel %>">Call me</a></li><% } %>
+                <% if(person.contact.facebook) { %>   <li><span class="icon icon--facebook-darkest"></span><a href="<%= person.contact.facebook %>" target="_blank">Facebook</a></li><% } %>
+                <% if(person.contact.twitter) { %>    <li><span class="icon icon--twitter-darkest"></span><a href="<%= person.contact.twitter %>" target="_blank">Twitter</a></li><% } %>
+                <% if(person.contact.linkedin) { %>   <li><span class="icon icon--linkedin-darkest"></span><a href="<%= person.contact.linkedin %>" target="_blank">LinkedIn</a></li><% } %>
+                <% if(person.contact.github) { %>     <li><span class="icon icon--github-darkest"></span><a href="<%= person.contact.github %>" target="_blank">Github</a></li><% } %>
+                <% if(person.contact.dribbble) { %>   <li><span class="icon icon--dribbble-darkest"></span><a href="<%= person.contact.dribbble %>" target="_blank">Dribbble</a></li><% } %>
+                <% if(person.contact.spotlight) { %>  <li><span class="icon icon--spotlight-darkest"></span><a href="<%= person.contact.spotlight %>" target="_blank">Spotlight</a></li><% } %>
+              </ul>
+            </li><!-- end of .card -->
+            <% } %>
+            <% }) %>
+          </ul><!-- end of .employees-list -->
+        </div>
+      </section>
+    </main>
+    <% include partials/footer %>
+  </body>
+</html>

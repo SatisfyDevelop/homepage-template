@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <% include partials/head %>
+  <body class="area-about">
+    <% include partials/header %>
+    <main>
+      <section id="mission">
+        <div class="container">
+          <header class="section--header">
+            <h1 class="text-heading-one">We want to help</h1>
+          </header>
+          <div class="card targetable">
+            <p class="paragraph--major">We partner with our clients to create awesome teams that gets projects done faster and better. We believe in going above and beyond for them, using our years of experience to be the best help they can buy.</p>
+          </div>
+        </div><!-- end of .container -->
+      </section>
+      <section id="team">
+        <div class="container">
+          <header class="section--header">
+            <h1 class="text-heading-one">The dream team</h1>
+          </header>
+          <ul class="employee-list">
+            <% collections.person.forEach(function(person){ %>
+            <li class="employee card targetable">
+              <div class="employee-photo-wrap">
+                <img src="../images/photos/team/<%= person.id%>.jpg" alt="Potrait of <%= person.name %>" class="employee-photo" />
+              </div>
+              <h2 class="text-heading-two employee-name"><%= person.name %></h2>
+              <h3 class="paragraph--minor employee-title"><%= person.title %></h3>
+              <p class="paragraph--minor employee-bio"><%= person.bio %></p>
+              <ul class="list--minor employee-contact">
+                <% if(person.contact.email) { %>      <li><span class="icon icon--email-darkest"></span><a href="mailto:<%= person.contact.email %>@eastcoastproduct.com" target="_blank">Email me</a></li><% } %>
+                <% if(person.contact.schedule) { %>   <li><span class="icon icon--calendar-darkest"></span><a href="<%= person.contact.schedule %>" target="_blank">Schedule time with me</a></li><% } %>
+                <% if(person.contact.tel) { %>        <li><span class="icon icon--phone-darkest"></span><a href="tel:<%= person.contact.tel %>">Call me</a></li><% } %>
+                <% if(person.contact.facebook) { %>   <li><span class="icon icon--facebook-darkest"></span><a href="<%= person.contact.facebook %>" target="_blank">Facebook</a></li><% } %>
+                <% if(person.contact.twitter) { %>    <li><span class="icon icon--twitter-darkest"></span><a href="<%= person.contact.twitter %>" target="_blank">Twitter</a></li><% } %>
+                <% if(person.contact.linkedin) { %>   <li><span class="icon icon--linkedin-darkest"></span><a href="<%= person.contact.linkedin %>" target="_blank">LinkedIn</a></li><% } %>
+                <% if(person.contact.github) { %>     <li><span class="icon icon--github-darkest"></span><a href="<%= person.contact.github %>" target="_blank">Github</a></li><% } %>
+                <% if(person.contact.dribbble) { %>   <li><span class="icon icon--dribbble-darkest"></span><a href="<%= person.contact.dribbble %>" target="_blank">Dribbble</a></li><% } %>
+                <% if(person.contact.spotlight) { %>  <li><span class="icon icon--spotlight-darkest"></span><a href="<%= person.contact.spotlight %>" target="_blank">Spotlight</a></li><% } %>
+              </ul>
+            </li><!-- end of .card -->
+            <% }) %>
+          </ul><!-- end of .employees-list -->
+        </div><!-- end of .container -->
+      </section>
+      <section id="values">
+        <div class="container">
+          <header class="section--header">
+            <h1 class="text-heading-one">Our Values</h1>
+          </header>
+          <ul class="value-list">
+            <% collections.values.forEach(function(value) { %>
+            <li class="value card targetable">
+              <div class="value-image-wrap">
+                <img src="<%= value.image %>" alt="Illustration." class="value-image" />
+              </div>
+              <h2 class="text-heading-two"><%= value.title %></h2>
+              <p><%= value.description %></p>
+            </li>
+            <% }) %>
+          </ul>
+        </div><!-- end of .container -->
+      </section>
+      <!-- hide until we have photos
+      <section id="offices">
+        <div class="container">
+          <header class="section--header">
+            <h1 class="text-heading-one">Our offices</h1>
+          </header>
+          <div class="card targetable">
+          </div>
+        </div>
+      </section>
+      -->
+      <section id="jobs">
+        <div class="container">
+          <header class="section--header">
+            <h1 class="text-heading-one">Jobs</h1>
+          </header>
+          <div class="job-list">
+            <% collections.jobs.forEach(function(job) { %>
+            <% if(job.published == true) { %>
+            <a href="../jobs/<%= job.id %>" class="job card targetable">
+              <h2 class="text-heading-two"><span class="link-surrogate"><%= job.pageHeading %></span></h2>
+              <p>Location: <%- job.pageDescription %></p>
+            </a>
+            <% } %>
+            <% }) %>
+          </div>
+        </div><!-- end of .container -->
+      </section>
+    </main>
+    <% include partials/footer %>
+  </body>
+</html>
