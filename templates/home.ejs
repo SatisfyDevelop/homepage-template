@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <% include partials/head %>
+  <body class="area-home">
+    <% include partials/header %>
+    <main>
+      <section id="team">
+        <div class="container">
+          <header class="section--header">
+            <h1 class="text-heading-one">Who we are</h1>
+          </header>
+          <div class="card targetable">
+            <p class="paragraph--major">We are a group of expert designers and developers, working together to build great product. We work in small teams focused on only your project, designed to find the right solutions to your problems.</p>
+            <a href="<%- level %>about" class="button--default">Meet the team</a>
+          </div><!-- end of .card -->
+        </div>
+      </section>
+      <section id="clients">
+        <div class="container">
+          <header class="section--header">
+            <h1 class="text-heading-one">Our clients and partners</h1>
+          </header>
+          <ul class="logo-grid">
+            <li id="innovationWomen" class="logo card targetable">Innovation Women</li>
+            <li id="velir" class="logo card targetable">Velir</li>
+            <li id="resilientCoders" class="logo card targetable">Resilient Coders</li>
+            <li id="snapx" class="logo card targetable">SNAPX</li>
+            <li id="cityAwake" class="logo card targetable">City Awake</li>
+            <li id="vsnap" class="logo card targetable">Vsnap</li>
+          </ul>
+          <a href="<%- level %>work" class="button--default">Hear their stories</a>
+        </div>
+      </section>
+      <section id="services">
+        <div class="container">
+          <header class="section--header">
+            <h1 class="text-heading-one">Services we offer</h1>
+          </header>
+          <% collections.services.forEach(function(service){ %>
+          <div class="card targetable" id="<%= service.id %>">
+            <h2 class="text-heading-two"><%= service.title %></h2>
+            <% if(service.leadImage) { %>
+            <img src="<%= service.leadImage %>" alt="Illustration of equipment used for <%= service.title %>" class="card-image--hang-right-wide" />
+            <% } %>
+            <p><%= service.description %></p>
+            <a href="<%- level %>services/#<%= service.id %>" class="button--default">Learn more<span class="visually-hidden"> about <%= service.title %></span></a>
+          </div>
+          <% }) %>
+        </div>
+      </section>
+    </main>
+    <% include partials/footer %>
+  </body>
+</html>
+
