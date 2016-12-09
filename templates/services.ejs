@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <% include partials/head %>
+  <body class="area-services">
+    <% include partials/header %>
+    <main>
+      <% collections.services.forEach(function(service) { %>
+      <section id="<%= service.id %>">
+        <div class="container">
+          <header class="section--header">
+            <h1 class="text-heading-one"><%- service.title %></h1>
+          </header>
+          <div class="card targetable">
+            <p class="paragraph--major"><%- service.description %></p>
+            <%- service.contents %>
+          </div>
+        </div><!-- end of .container -->
+      </section>
+      <% }) %>
+    </main>
+    <% include partials/footer %>
+  </body>
+</html>
