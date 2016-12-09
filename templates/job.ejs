@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <% include partials/head %>
+  <body class="area-jobs">
+    <% include partials/header %>
+    <main>
+      <section id="contents">
+        <div class="container">
+          <div class="card targetable">
+            <%- contents %>
+          </div>
+        </div>
+      </section>
+      <section id="apply">
+        <div class="container">
+          <div class="card targetable">
+            <h2 class="text-heading-two">How To Apply</h2>
+            <% collections.person.forEach(function(person){ %>
+            <% if(person.id == hiringContactId) { %>
+            <p>Please email our <%= person.title %>, <%= person.name %></a>, if you’re interested in applying for the position.</p>
+            <a href="mailto:<%= person.contact.email %>@eastcoastproduct.com" class="button--default" target="_blank">Email <%= person.name %></a>
+            <% } %>
+            <% }) %>
+          </div>
+        </div>
+      </section>
+    </main>
+    <% include partials/footer %>
+  </body>
+</html>
