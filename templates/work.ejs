@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <% include partials/head %>
+  <body class="area-work">
+    <% include partials/header %>
+    <main>
+      <section id="projects">
+        <div class="container">
+          <header class="section--header">
+            <h1 class="text-heading-one">Projects</h1>
+          </header>
+          <div class="work-list">
+            <% collections.work.forEach(function(work) { %>
+            <% if(work.published == true) { %>
+            <a href="../work/<%= work.id %>" class="work card">
+              <div class="work-image-wrap">
+                <img src="<%= work.pageHeadingImage %>" alt="A screenshot from the <%- work.pageHeading %> project." class="work-image" />
+              </div>
+              <h2 class="text-heading-two work-project-tagline"><span class="link-surrogate"><%- work.pageHeading %></span></h2>
+              <p class="paragraph--minor work-client-name"><%- work.pageDescription %></p>
+            </a>
+            <% } %>
+            <% }) %>
+          </div>
+        </div>
+      </section>
+    </main>
+    <% include partials/footer %>
+  </body>
+</html>

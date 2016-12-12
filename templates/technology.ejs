@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <% include partials/head %>
+  <body class="area-technologies">
+    <% include partials/header %>
+    <main>
+      <section id="contents">
+        <div class="container">
+          <div class="card targetable">
+            <%- contents %>
+          </div>
+        </div>
+      </section>
+      <section id="contact">
+        <div class="container">
+          <header class="section--header">
+            <h1 class="text-heading-one">Need <%- pageHeading %> expertise? Let's talk.</h1>
+          </header>
+          <div class="card targetable">
+            <!--[if lte IE 8]>
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+            <![endif]-->
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+            <script>
+              hbspt.forms.create({
+                css: '',
+                portalId: '502785',
+                formId: '21c60590-9b4f-4f35-b1f3-c00332ec2449'
+              });
+            </script>
+          </div>
+        </div>
+      </section>
+    </main>
+    <% include partials/footer %>
+  </body>
+</html>
